@@ -6,6 +6,9 @@ So far the tool implements the analysis against Fault Sensitivity Analysis (FSA)
 
 ## Getting Started
 
+Every analysis is configured with the file **FSAConfig.txt**, where the needed files are and their paths are requested. 
+To compile the code is enough with running **make all** in the console, and to create a documentation **make docs**. To run the analysis run in the console **./bin /FSA**.
+
 ## License
 Copyright (C) 2020  Andrés Felipe Valencia 
 
