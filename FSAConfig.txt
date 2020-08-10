@@ -1,0 +1,99 @@
+
+# This file contains the file configuration 
+# Comments are defined with #
+
+# ################################
+
+# Name for the module and the project
+<projectName>xorSbox</projectName>
+
+
+# Number of traces used for FSA analysis
+<numTracesFSA>16000</numTracesFSA>
+
+# Number of traces used for FSA building the templates
+<numTracesFSAT>16000</numTracesFSAT>
+
+# Folder containing the scripts templates
+<templateFolder>./Templates/</templateFolder>
+
+# Folder containing the HDL sources.This folder must contain a file "src.txt" stating all HDL sources
+<HWpath>./HDL/</HWpath>
+
+# Mapped library
+<compiledLibfolder>FreePDK45</compiledLibfolder>
+
+# Folder and testbeches for RTL, SYN and P&R simulation
+<pathTB>./TBENCH/</pathTB>
+<fileTB>xorSbox_tb.vhd</fileTB>
+<fileGateTB>xorSboxGATE_tb.vhd</fileGateTB>
+
+<scriptSYN>synthesize.tcl</scriptSYN>
+
+
+# Units of the arguments refering to second 1e-9 = ns
+<unit>1e-9</unit>
+# Synthesis time. This time will be increased if the critical path is higher
+<timeSyn>1</timeSyn>
+# Slack of the design. First time this parameter should be place at a negtive number
+<slack>0.02</slack>
+# Precision for searching the critical path
+<precIncr>0.1</precIncr>
+# Area of the nand gate to get gate equivalent
+<Nand>0.798</Nand>
+
+# Script for place and route encounter
+<scriptPAR>SoC_Encounter.tcl</scriptPAR>
+
+# Script for taking the sensitivy of the synthesize or mapped circuit
+<scriptGATE>compileGATE.csh</scriptGATE>
+
+# Script for taking the sensitivy of the placed and routed circuit
+<scriptGATEPR>compileGATE_PR.csh</scriptGATEPR>
+<scriptGATEPR_multi>compileGATEtimes_PR.csh </scriptGATEPR_multi>
+
+# Activate debug messages
+<debug>1</debug>
+# Define if make FSA analysis with results after synthesis (0) or after place and route (1)
+<phaseFSA>1</phaseFSA>
+
+# Time information for searching sensitivity
+<minTimeGate> 0.1</minTimeGate>
+# stepTimeGate cannot be less than 0.002
+<stepTimeGate> 0.002</stepTimeGate>
+# <stepTimeGate> 0.010</stepTimeGate>
+
+# Number of processes used when getting the sensitivity information. Minimum 1.
+<numProc>16</numProc>
+
+# Size of the chunks for sensitivity simulations
+<senSimChunk>1000</senSimChunk>
+
+# Path containing the sensitivity models
+<modelsPath>./res/SenModels/</modelsPath> 
+
+# Number of points in the graph of correlation evolution
+<pointEvoCorrelation> 10 </pointEvoCorrelation>
+
+# Scripts for plotting the results
+<scriptPlot>Plot.m</scriptPlot> 
+<scriptPlotT>PlotTemplate.m</scriptPlotT>
+
+
+# ################################
+# Phases to develop for the analysis
+# Phases with 0 need to executed, with 1 are already executed
+# Phases until 'placeRoute' are dependent, one phases at 0 also make the following phases at 0
+
+<folderStructure>1</folderStructure>
+<stimuliGen>1</stimuliGen>
+<simulationRTL>1</simulationRTL>
+<synthesis>1</synthesis>
+<placeRoute>1</placeRoute>
+
+<getSensitivity>1</getSensitivity>
+<FSAmodels>0</FSAmodels>
+<phase8>0</phase8>
+<phase9>0</phase9>
+<phase10>0</phase10>
+

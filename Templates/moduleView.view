@@ -1,0 +1,22 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+
+
+set NANGATE45_DIR /opt/designkits/nangate/FreePDK_45nm
+set ENTITY_NAME #M_ENT
+set CLK_PERIOD #M_PER; # ns
+set DESIGN_NAME "${ENTITY_NAME}_${CLK_PERIOD}ns"
+
+create_library_set -name LIBSET_TC -timing "${NANGATE45_DIR}/Front_End/Liberty/ECSM/NangateOpenCellLibrary_typical_ecsm.lib"
+
+create_rc_corner -name RC_TC -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+
+create_delay_corner -name DC_TC -library_set {LIBSET_TC} -opcond_library {NangateOpenCellLibrary} -opcond {NangateOpenCellLibrary/%NOM_PVT} -rc_corner {RC_TC}
+
+create_constraint_mode -name CM -sdc_files "../SNPS_DC/SDC/${DESIGN_NAME}_mapped.sdc"
+
+create_analysis_view -name AV_TC -constraint_mode {CM} -delay_corner {DC_TC}
+
+set_analysis_view -setup {AV_TC} -hold {AV_TC}
+
+

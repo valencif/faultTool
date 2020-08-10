@@ -1,0 +1,16 @@
+set LIBRARY_PATH "/opt/designkits/nangate/setup/libs/snps/FreePDK45nmgp/"
+lappend search_path "./"
+lappend search_path $LIBRARY_PATH
+
+#set SYNOPSYS [getenv SYNOPSYS]
+set SYNOPSYS "/opt/designtools/synopsys/syn/K-2015.06-SP5"
+
+set synthetic_library $SYNOPSYS/libraries/syn/gtech.db
+lappend synthetic_library $SYNOPSYS/libraries/syn/dw_foundation.sldb
+
+set target_library   { NangateOpenCellLibrary_typical.db }
+set link_library [concat { "*" } $target_library $synthetic_library ]
+
+
+
+
