@@ -6,7 +6,7 @@ So far the tool implements the analysis against Fault Sensitivity Analysis (FSA)
 
 ## Getting Started
 
-Every analysis is configured with the file **FSAConfig.txt**, where the needed files are and their paths are requested. First time it is recommended to activate flag **debug** to see the output of internal processes.
+Every analysis is configured with the file **FSAConfig.txt**, where the needed files are and their paths are requested. First time it is recommended to activate flag **debug** to see the output of internal processes. All phases of the configuration file should be place at 0 start a process from the beginning.
 To compile the code is enough with running **make all** in the console, and to create a documentation **make docs**. To run the analysis run in the console **./bin /FSA**.
 
 The needed files are:
